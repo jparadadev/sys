@@ -1,8 +1,9 @@
 version: '3.3'
 
 services:
-  mysql-db:
+  mysqldb:
     image: mysql
+    name: dev-mysql
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
