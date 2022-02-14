@@ -1,5 +1,5 @@
 services:
-  node-red-service:
+  node-red:
     image: nodered/node-red
     container_name: node-red
     restart: unless-stopped
@@ -9,27 +9,27 @@ services:
       - broker-net
       - persistence-net
     ports:
-      - "1881:1880"
+      - "1880:1880"
     volumes:
       - ~/docker_volumes/vnodered:/data
 
-  mqtt-broker-service:
+  mqtt-broker:
     image: eclipse-mosquitto:1.6.13
     container_name: mqtt-broker
     restart: unless-stopped
     networks:
       - broker-net
     ports:
-      - "1880:1880"
+      - "1883:1883"
 
-  mongo-db:
+  mongodb:
     image: mongo
     container_name: mongodb
     restart: unless-stopped
     networks:
       - persistence-net
     volumes:
-      - ~/docker_volumes/vmongodb:/data/db 
+      - ~/docker_volumes/vmongodb:/data/db
     ports:
       - "27017:27017"
 
