@@ -11,7 +11,16 @@ services:
     volumes:
       - ~/docker_volumes/vmysql:/var/lib/mysql
 
+  mongodb:
+    image: mongo
+    container_name: dev-mongo
+    restart: unless-stopped
+    volumes:
+      - ~/docker_volumes/vmongodb:/data/db
+    ports:
+      - "27017:27017"
 
 volumes:
   vmysql:
+  vmongodb:
 
