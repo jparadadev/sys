@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+    client:
+        container_name: kaliclient
+        image: kalilinux/kali-rolling
+        networks:
+            - client_server_net
+        tty: true
+        
+
+    server:
+        container_name: kaliserver
+        image: kalilinux/kali-rolling
+        networks:
+            - client_server_net
+        tty: true
+
+networks:
+    client_server_net:
+        driver: bridge
